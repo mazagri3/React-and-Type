@@ -1,0 +1,407 @@
+.candidate-list {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+}
+
+.candidate-list h1 {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.candidates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.candidate-card {
+  background: linear-gradient(135deg, var(--card-bg), rgba(15, 23, 42, 0.95));
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.candidate-name-box {
+  background: linear-gradient(135deg, rgba(234, 179, 8, 0.1), rgba(15, 23, 42, 0.8));
+  border: 2px solid var(--gold-accent);
+  border-radius: 10px;
+  padding: 1rem;
+  margin: -0.5rem -0.5rem 1rem -0.5rem;
+  text-align: center;
+}
+
+.candidate-name-box h2 {
+  margin: 0;
+  color: var(--secondary-color);
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background: linear-gradient(135deg, var(--secondary-color), var(--gold-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.candidate-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.candidate-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 2px solid var(--gold-accent);
+  box-shadow: 0 0 15px rgba(234, 179, 8, 0.2);
+}
+
+.candidate-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.candidate-card p {
+  margin: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  line-height: 1.5;
+  font-size: 1rem;
+}
+
+.candidate-card .label {
+  color: var(--gold-accent);
+  font-weight: 600;
+  min-width: 80px;
+  flex-shrink: 0;
+}
+
+.candidate-card .value {
+  color: var(--text-primary);
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  max-width: calc(100% - 100px);
+}
+
+.candidate-card .bio {
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.candidate-card .bio .value {
+  font-style: italic;
+  line-height: 1.6;
+  max-height: 4.8em;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+/* Icons for card details */
+.candidate-card p::before {
+  font-size: 1.4rem;
+  color: var(--gold-accent);
+  opacity: 0.9;
+}
+
+.candidate-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold-accent);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2),
+              0 10px 10px -5px rgba(0, 0, 0, 0.1),
+              0 0 15px rgba(234, 179, 8, 0.15);
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .candidate-card {
+    padding: 1rem;
+  }
+
+  .candidate-name-box h2 {
+    font-size: 1.4rem;
+  }
+
+  .candidate-image {
+    width: 80px;
+    height: 80px;
+  }
+
+  .candidate-card p {
+    font-size: 0.95rem;
+  }
+
+  .candidate-card .label {
+    min-width: 70px;
+  }
+}
+
+.save-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--accent-color), var(--success-color));
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  box-shadow: 0 4px 6px -1px rgba(34, 197, 94, 0.2);
+}
+
+.save-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 12px -1px rgba(34, 197, 94, 0.3);
+}
+
+.save-button.saved {
+  background: linear-gradient(135deg, var(--danger-color), #991b1b);
+}
+
+.loading, .error {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  background: var(--card-bg);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  max-width: 500px;
+  margin: 2rem auto;
+}
+
+/* Table styles for potential candidates view */
+.candidates-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2rem;
+}
+
+.candidates-table th,
+.candidates-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.candidates-table th {
+  color: var(--secondary-color);
+  font-weight: 600;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.candidates-table tr:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  color: var(--text-secondary);
+  margin: 2rem 0;
+  font-size: 1.1rem;
+}
+
+.delete-button {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--danger-color), #991b1b);
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(220, 38, 38, 0.2);
+}
+
+.delete-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(220, 38, 38, 0.3);
+}
+
+.delete-confirmation-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(15, 23, 42, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+}
+
+.delete-confirmation {
+  background: linear-gradient(135deg, var(--card-bg), rgba(15, 23, 42, 0.95));
+  border-radius: 16px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  margin: 1rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: slideIn 0.3s ease-out;
+}
+
+.delete-confirmation h3 {
+  color: var(--danger-color);
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.delete-confirmation p {
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.confirmation-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.confirm-delete,
+.cancel-delete {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.confirm-delete {
+  background: linear-gradient(135deg, var(--danger-color), #991b1b);
+  color: white;
+}
+
+.cancel-delete {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+}
+
+.confirm-delete:hover,
+.cancel-delete:hover {
+  transform: translateY(-2px);
+}
+
+.confirm-delete:hover {
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}
+
+.cancel-delete:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.main-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.main-header h1 {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--secondary-color), var(--gold-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 10px rgba(234, 179, 8, 0.2);
+}
+
+.search-icon {
+  width: 64px;
+  height: 64px;
+  color: var(--gold-accent);
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.search-icon svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 8px rgba(234, 179, 8, 0.3));
+} 

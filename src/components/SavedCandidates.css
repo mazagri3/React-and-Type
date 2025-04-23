@@ -1,0 +1,201 @@
+.saved-candidates {
+  padding: 1rem;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+}
+
+.candidates-table-container {
+  background: var(--card-bg);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow-x: auto;
+  margin-top: 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.candidates-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  table-layout: fixed;
+}
+
+.candidates-table th {
+  background: rgba(0, 0, 0, 0.3);
+  color: var(--gold-accent);
+  font-weight: 600;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  white-space: nowrap;
+}
+
+.candidates-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  vertical-align: middle;
+}
+
+/* Column widths */
+.image-cell {
+  width: 60px;
+}
+
+.name-cell {
+  width: 15%;
+}
+
+.email-cell {
+  width: 20%;
+}
+
+td:last-child {
+  width: 80px;
+  text-align: center;
+}
+
+/* Make text cells handle overflow nicely */
+.candidates-table td:not(.image-cell):not(:last-child) {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Bio cell should wrap */
+.candidates-table td:nth-last-child(2) {
+  white-space: normal;
+  max-width: 250px;
+}
+
+.candidate-row {
+  transition: background-color 0.3s ease;
+}
+
+.candidate-row:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.candidate-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid var(--gold-accent);
+}
+
+.name-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.name {
+  color: var(--secondary-color);
+  font-weight: 600;
+}
+
+.username {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+.email-cell a {
+  color: var(--gold-accent);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.email-cell a:hover {
+  color: var(--secondary-color);
+  text-decoration: underline;
+}
+
+.reject-button {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  background: var(--danger-color);
+  color: white;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.reject-button:hover {
+  transform: scale(1.1);
+  background: #dc2626;
+}
+
+.no-candidates {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  margin: 3rem 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .saved-candidates {
+    padding: 0.5rem;
+  }
+  
+  .candidates-table {
+    font-size: 0.9rem;
+  }
+  
+  .candidates-table th,
+  .candidates-table td {
+    padding: 0.5rem;
+  }
+
+  .bio-cell {
+    max-width: 150px;
+  }
+}
+
+/* Pagination styles */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: var(--card-bg);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pagination-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: rgba(0, 0, 0, 0.3);
+  color: var(--text-primary);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 40px;
+  font-size: 0.9rem;
+}
+
+.pagination-button:hover:not(:disabled) {
+  background: var(--gold-accent);
+  color: var(--card-bg);
+}
+
+.pagination-button:disabled {
+  background: var(--gold-accent);
+  color: var(--card-bg);
+  cursor: default;
+} 
