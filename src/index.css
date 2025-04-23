@@ -1,0 +1,140 @@
+/* Created by Obi Mazagri
+   This file contains the main styles for the candidate search application */
+
+:root {
+  --primary-color: #2d3748;
+  --secondary-color: #4a5568;
+  --accent-color: #4299e1;
+  --background-color: #f7fafc;
+  --text-color: #1a202c;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+nav {
+  background-color: var(--primary-color);
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border-radius: 0.5rem;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+nav a:hover {
+  color: var(--accent-color);
+}
+
+.candidate-search,
+.saved-candidates {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.candidate-card {
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+}
+
+.candidate-card img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.candidate-card h2 {
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.candidate-card p {
+  margin-bottom: 0.5rem;
+  color: var(--secondary-color);
+}
+
+.candidate-card a {
+  display: inline-block;
+  margin: 1rem 0;
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  background-color: var(--accent-color);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #3182ce;
+}
+
+.candidates-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  width: 100%;
+}
+
+.error-page {
+  text-align: center;
+  padding: 2rem;
+}
+
+.error-page h1 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.error-page a {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 500;
+} 
