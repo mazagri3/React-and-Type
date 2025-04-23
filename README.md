@@ -17,6 +17,10 @@ A React and TypeScript application that allows users to search for GitHub users 
 - View saved candidates
 - Remove candidates from saved list
 
+## Walkthrough Video
+
+Check out the application walkthrough video [here](https://drive.google.com/file/d/1ErcCAYMH1buTXAoOoTiKEWSVr2v9HzNI/view?usp=sharing)
+
 ## Technologies Used
 
 - React
